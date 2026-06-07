@@ -12,7 +12,7 @@ function Dashboard() {
   const loadTasks = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/tasks",
+        "https://to-do-list-wheelsonbizai.onrender.com/api/tasks",
         {
           headers: {
             authorization: token,
@@ -50,7 +50,6 @@ function Dashboard() {
       );
 
       setTitle("");
-
       loadTasks();
     } catch (error) {
       console.log(error);
@@ -60,7 +59,7 @@ function Dashboard() {
   const completeTask = async (id) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/tasks/${id}`,
+        `https://to-do-list-wheelsonbizai.onrender.com/api/tasks/${id}`,
         {},
         {
           headers: {
@@ -78,7 +77,7 @@ function Dashboard() {
   const deleteTask = async (id) => {
     try {
       await axios.delete(
-        `http://localhost:5000/api/tasks/${id}`,
+        `https://to-do-list-wheelsonbizai.onrender.com/api/tasks/${id}`,
         {
           headers: {
             authorization: token,
@@ -94,12 +93,11 @@ function Dashboard() {
 
   const logout = () => {
     localStorage.removeItem("token");
-    window.location = "/";
+    window.location = "/#/";
   };
 
   return (
     <div className="container dashboard">
-
       <div className="header">
         <h2>Todo Dashboard</h2>
 
@@ -146,7 +144,6 @@ function Dashboard() {
           </span>
 
           <div className="action-buttons">
-
             {!task.completed && (
               <button
                 onClick={() =>
@@ -165,7 +162,6 @@ function Dashboard() {
             >
               Delete
             </button>
-
           </div>
         </div>
       ))}

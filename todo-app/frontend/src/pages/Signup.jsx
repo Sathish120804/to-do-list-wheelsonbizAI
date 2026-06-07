@@ -22,7 +22,8 @@ function Signup() {
       );
 
       alert("Signup Successful");
-      window.location = "/";
+
+      window.location = "/#/";
     } catch (error) {
       alert("Email already exists");
     }
@@ -56,7 +57,10 @@ function Signup() {
 
       <p className="link-text">
         Already have an account?
-        <a href="/"> Sign In</a>
+        <a href="/#/">
+          {" "}
+          Sign In
+        </a>
       </p>
     </div>
   );

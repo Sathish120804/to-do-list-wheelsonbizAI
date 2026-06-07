@@ -23,7 +23,7 @@ function Signin() {
 
       alert("Login Successful");
 
-      window.location = "/dashboard";
+      window.location = "/#/dashboard";
     } catch (error) {
       alert("Invalid Credentials");
     }
@@ -57,7 +57,10 @@ function Signin() {
 
       <p className="link-text">
         New User?
-        <a href="/signup"> Create Account</a>
+        <a href="/#/signup">
+          {" "}
+          Create Account
+        </a>
       </p>
     </div>
   );
