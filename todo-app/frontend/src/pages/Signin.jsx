@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import "../App.css";
 
 function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
@@ -23,7 +26,7 @@ function Signin() {
 
       alert("Login Successful");
 
-      window.location = "/#/dashboard";
+      navigate("/dashboard");
     } catch (error) {
       alert("Invalid Credentials");
     }
@@ -56,11 +59,10 @@ function Signin() {
       </button>
 
       <p className="link-text">
-        New User?
-        <a href="/#/signup">
-          {" "}
+        New User?{" "}
+        <Link to="/signup">
           Create Account
-        </a>
+        </Link>
       </p>
     </div>
   );

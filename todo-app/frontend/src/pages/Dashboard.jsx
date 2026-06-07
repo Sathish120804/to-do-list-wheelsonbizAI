@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../App.css";
 
 function Dashboard() {
   const [title, setTitle] = useState("");
   const [tasks, setTasks] = useState([]);
+
+  const navigate = useNavigate();
 
   const token =
     localStorage.getItem("token");
@@ -93,7 +96,7 @@ function Dashboard() {
 
   const logout = () => {
     localStorage.removeItem("token");
-    window.location = "/#/";
+    navigate("/");
   };
 
   return (

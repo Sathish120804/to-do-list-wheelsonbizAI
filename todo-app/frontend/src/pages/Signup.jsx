@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import "../App.css";
 
 function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSignup = async () => {
     try {
@@ -23,7 +26,7 @@ function Signup() {
 
       alert("Signup Successful");
 
-      window.location = "/#/";
+      navigate("/");
     } catch (error) {
       alert("Email already exists");
     }
@@ -56,11 +59,10 @@ function Signup() {
       </button>
 
       <p className="link-text">
-        Already have an account?
-        <a href="/#/">
-          {" "}
+        Already have an account?{" "}
+        <Link to="/">
           Sign In
-        </a>
+        </Link>
       </p>
     </div>
   );
